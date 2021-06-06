@@ -193,6 +193,9 @@ class SMachineType(Gen_SMachineType, QWidget):
         error: str
             Error message (return None if no error)
         """
+        # The WRSG Machine Type set Winding and Pole pairs later.
+        if machine.type_machine == 12:
+            return
         try:
             if machine.stator.winding is None:
                 return "Missing stator winding"
