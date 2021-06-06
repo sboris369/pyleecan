@@ -1,3 +1,9 @@
 Variable name,Unit,Description (EN),Size,Type,Default value,Minimum value,Maximum value,,Package,Inherit,Methods,Constant Name,Constant Value,Class description
 rotor,,Machine's Rotor,,LamSlotWind,,,,,Machine,MachineSync,check,VERSION,1,Wound Rotor Synchronous Generator
 stator,,Machine's Stator,,LamSlotWind,,,,,,,get_machine_type,,,
+Kva,,Power output in Kilo Volt/Amperes,float,,,,,,,,,,,
+Vout,,Machines output Voltage,float,,,,,,,,,,,
+Ns,,Synchronous Speed of the Rotor,int,,,,,,,,,,,
+frequency,,Output Frequency of the Generator,int,,0,,,,,,,,,
+Bav,,Initial Flux density,float,,,,,,,,,,,
+pf,,Power factor,float,,,,,,,,,,,
