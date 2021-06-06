@@ -41,6 +41,7 @@ class Ui_SMachineType(object):
         self.c_type.addItem("")
         self.c_type.addItem("")
         self.c_type.addItem("")
+        self.c_type.addItem("")
         self.c_type.setObjectName(u"c_type")
 
         self.horizontalLayout_5.addWidget(self.c_type)
@@ -169,16 +170,19 @@ class Ui_SMachineType(object):
             2, QCoreApplication.translate("SMachineType", u"WRSM", None)
         )
         self.c_type.setItemText(
-            3, QCoreApplication.translate("SMachineType", u"SPMSM", None)
+            3, QCoreApplication.translate("SMachineType", u"WRSG", None)
         )
         self.c_type.setItemText(
-            4, QCoreApplication.translate("SMachineType", u"SIPMSM", None)
+            4, QCoreApplication.translate("SMachineType", u"SPMSM", None)
         )
         self.c_type.setItemText(
-            5, QCoreApplication.translate("SMachineType", u"IPMSM", None)
+            5, QCoreApplication.translate("SMachineType", u"SIPMSM", None)
         )
         self.c_type.setItemText(
-            6, QCoreApplication.translate("SMachineType", u"SyRM", None)
+            6, QCoreApplication.translate("SMachineType", u"IPMSM", None)
+        )
+        self.c_type.setItemText(
+            7, QCoreApplication.translate("SMachineType", u"SyRM", None)
         )
 
         self.img_type_machine.setText("")

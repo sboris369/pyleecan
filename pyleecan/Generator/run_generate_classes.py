@@ -5,7 +5,6 @@ from os import listdir, remove, system
 import json
 from datetime import datetime
 
-
 begin = len(normpath(abspath(join(dirname(__file__), "../.."))))
 end = len(normpath(abspath(join(dirname(__file__), ".."))))
 MAIN_DIR = dirname(realpath(__file__))

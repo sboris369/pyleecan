@@ -99,6 +99,7 @@ from ..Classes.MachineSRM import MachineSRM
 from ..Classes.MachineSyRM import MachineSyRM
 from ..Classes.MachineSync import MachineSync
 from ..Classes.MachineUD import MachineUD
+from ..Classes.MachineWRSG import MachineWRSG
 from ..Classes.MachineWRSM import MachineWRSM
 from ..Classes.MagElmer import MagElmer
 from ..Classes.MagFEMM import MagFEMM

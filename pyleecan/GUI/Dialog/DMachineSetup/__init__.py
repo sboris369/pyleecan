@@ -15,6 +15,7 @@ from ....Classes.MachineSIPMSM import MachineSIPMSM
 from ....Classes.MachineSRM import MachineSRM
 from ....Classes.MachineSyRM import MachineSyRM
 from ....Classes.MachineWRSM import MachineWRSM
+from ....Classes.MachineWRSG import MachineWRSG
 from ....Classes.SlotM10 import SlotM10
 from ....Classes.Winding import Winding
 from ....Classes.WindingSC import WindingSC
@@ -132,6 +133,16 @@ machine11.type_machine = 11
 machine11.stator.is_stator = True
 machine11.rotor.is_stator = False
 
+machine12 = MachineWRSG(frame=None, shaft=None)
+machine12.stator = LamSlotWind()
+machine12.stator.winding = Winding()
+machine12.rotor = LamSlotWind()
+machine12.rotor.winding = Winding()
+machine12._set_None()  # Empty machine
+machine12.type_machine = 12
+machine12.stator.is_stator = True
+machine12.rotor.is_stator = False
+
 # dictionary with all the information to set a SCIM
 SCIM_dict = {
     "machine_type": MachineSCIM,
@@ -220,6 +231,17 @@ LSPM_dict = {
     "img": pixmap_dict["LSPM"],
     "txt": "LSPM (Line Start Permanent Magnet)",
 }
+# Dictionnary with all the information to set a WRSG
+WRSG_dict = {
+    "machine_type": MachineWRSG,
+    "init_machine": machine12,
+    "start_step": S_step,
+    "stator_step": LSW_step,
+    "rotor_step": LP_step,
+    "name": "WRSG",
+    "img": pixmap_dict["WRSM"],
+    "txt": "WRSG (Wound Rotor Synchronous Generator)",
+}
 
 # List of machine types available in the GUI
 mach_list = [
@@ -229,6 +251,7 @@ mach_list = [
     SIPMSM_dict,
     IPMSM_dict,
     WRSM_dict,
+    WRSG_dict,
     SRM_dict,
     LSPM_dict,
 ]

@@ -4883,6 +4883,7 @@
             "MachineSyRM",
             "MachineSync",
             "MachineUD",
+            "MachineWRSG",
             "MachineWRSM"
         ],
         "desc": "Abstract class for machines",
@@ -5263,6 +5264,7 @@
             "MachineSIPMSM",
             "MachineSRM",
             "MachineSyRM",
+            "MachineWRSG",
             "MachineWRSM"
         ],
         "desc": "Abstract class for synchronous machine",
@@ -5312,6 +5314,45 @@
                 "type": "bool",
                 "unit": "",
                 "value": true
+            }
+        ]
+    },
+    "MachineWRSG": {
+        "constants": [
+            {
+                "name": "VERSION",
+                "value": "1"
+            }
+        ],
+        "daughters": [],
+        "desc": "Wound Rotor Synchronous Generator",
+        "is_internal": false,
+        "methods": [
+            "check",
+            "get_machine_type"
+        ],
+        "mother": "MachineSync",
+        "name": "MachineWRSG",
+        "package": "Machine",
+        "path": "pyleecan/Generator/ClassesRef/Machine/MachineWRSG.csv",
+        "properties": [
+            {
+                "desc": "Machine's Rotor",
+                "max": "",
+                "min": "",
+                "name": "rotor",
+                "type": "LamSlotWind",
+                "unit": "",
+                "value": ""
+            },
+            {
+                "desc": "Machine's Stator",
+                "max": "",
+                "min": "",
+                "name": "stator",
+                "type": "LamSlotWind",
+                "unit": "",
+                "value": ""
             }
         ]
     },

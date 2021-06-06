@@ -61,7 +61,15 @@ class SMachineType(Gen_SMachineType, QWidget):
         self.txt_type_machine.setText(self.mach_dict["txt"])
         self.img_type_machine.setPixmap(QPixmap(self.mach_dict["img"]))
         self.c_type.setCurrentIndex(index)
-        if machine.stator.get_pole_pair_number() is not None:
+
+        # For the WRSG machine type, we hide the pole pair label
+        # and spin box for it is not used during machine type selection.
+        # The label and spinbox are set back to visible if you change the
+        # machine type to something other then WRSG.
+        if machine.type_machine == 12:
+            self.in_p.setVisible(False)
+            self.si_p.setVisible(False)
+        elif machine.stator.get_pole_pair_number() is not None:
             self.si_p.setValue(machine.stator.winding.p)
         else:
             self.si_p.clear()  # Empty spinbox
@@ -79,8 +87,8 @@ class SMachineType(Gen_SMachineType, QWidget):
         else:
             self.is_inner_rotor.setCheckState(Qt.Unchecked)
 
-        # WRSM can only have inner rotor
-        if self.machine.type_machine == 9:
+        # WRSM and WRSG can only have inner rotor
+        if self.machine.type_machine == 9 or 12:
             self.is_inner_rotor.setEnabled(False)
         else:
             self.is_inner_rotor.setEnabled(True)
@@ -114,6 +122,15 @@ class SMachineType(Gen_SMachineType, QWidget):
         self : SMachineType
             A SMachineType object
         """
+        if self.machine.type_machine == 12:
+            # For WRSG Machine Type: Winding and Pole pairs cannot be set here.
+            # Pole pairs are dependent on Rotor speed and output Frequency.
+            # The choice of Stator Winding type can be either Concentrated or
+            # distributed windings. Also, distributed windings can be Integral or
+            # fractional slot windings. So these values are set latter.
+            # NOTE: since nothing gets changed self.saveNeeded.emit() is not called.
+            return
+
         value = self.si_p.value()
         if self.machine.stator.winding is None:
             self.machine.stator.winding = Winding()
